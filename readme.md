@@ -1,5 +1,7 @@
-# Foobar
-Foobar is a Python library for dealing with word pluralization.
+![Node.js CI](https://github.com/hpt-dev/QuickScrape/workflows/Node.js%20CI/badge.svg?branch=master)
+
+# QuickScrape
+Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.
 
 ## Installation
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
