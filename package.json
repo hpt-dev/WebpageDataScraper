@@ -8,9 +8,11 @@
     "fs": "^0.0.1-security",
     "puppeteer": "^3.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nyc": "^15.0.1"
+  },
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha"
   },
   "repository": {
     "type": "git",
