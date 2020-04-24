@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 const chalk = require('chalk');
 const fs = require('fs');
+//const Utils = require('./utils');
 
 const error = chalk.bold.red;
 const success = chalk.keyword("green");
@@ -46,58 +47,37 @@ global.sherdogSelectors =
     },
 };
 
+
 downloadData();
 
 async function downloadData() {
     const browser = await puppeteer.launch();
 
     try {
+
         console.log(success("Starting"));
 
         const page = await browser.newPage();
-        await page.goto('https://www.sherdog.com/fighter/Tony-Ferguson-31239',
-            {
-                waitUntil: 'load',
-                timeout: 0
-            });
 
+        await page.goto('https://www.sherdog.com/fighter/Tony-Ferguson-31239',
+        {
+            waitUntil: 'load',
+            timeout: 0
+        });
+
+        // data to pass to browser
         var passToBrowser = {
             sherdogSelectors: this.sherdogSelectors,
         };
 
+
+        await page.addScriptTag({path: "./utils.js"}); // pass util functions to chromium
+        page.on('console', msg => console.log('PAGE LOG:', msg.text())); // allow logging from chromium to node
+        
         var result = await page.evaluate((passToBrowser) => {
-            function copyObj(obj, copyToObj, func) {
-                Object.keys(obj).forEach(itm => {
-                    if (isObject(obj[itm])) {
-                        copyToObj[itm] = {};
-                        copyObj(obj[itm], copyToObj[itm], func);
-                    } else {
-                        copyToObj[itm] = func(obj[itm]);
-                    }
-                });
-            }
-
-            function isObject(obj) {
-                return obj !== undefined && obj !== null && obj.constructor == Object;
-            }
-
-            function getInnerText(selector) {
-                return document.querySelector(selector).innerText
-            }
-
-            function getImageURL(selector) {
-                return document.querySelector(selector).getAttribute('src').replace('/', '');
-            }
-
-            function getTableArray(selector) {
-                var rows = document.querySelectorAll(selector);
-                return Array.from(rows, row => {
-                    const columns = row.querySelectorAll('td');
-                    return Arrasaay.from(columns, column => column.innerText);
-                });
-            }
-
             let currFighter = {};
+
+            console.log(window.copyObj);
 
             copyObj(passToBrowser.sherdogSelectors.Text, currFighter, getInnerText);
             copyObj(passToBrowser.sherdogSelectors.Images, currFighter, getImageURL);
@@ -105,15 +85,15 @@ async function downloadData() {
 
             return currFighter;
 
-        }, passToBrowser);
+        },  passToBrowser);
 
         /*
             Save Photo
             var viewSource = await page.goto("https://www.google.com/" + imageHref);
-            fs.writeFile(".googles-20th-birthday-us-5142672481189888-s.png", await viewSource.buffer(), function (err) {
-            if (err) {
+            fs (err) {
                 return console.log(err);
-            }
+            }.writeFile(".googles-20th-birthday-us-5142672481189888-s.png", await viewSource.buffer(), function (err) {
+            if
         */
 
         console.log(result);
@@ -128,4 +108,3 @@ async function downloadData() {
         await browser.close();
     }
 }
-
