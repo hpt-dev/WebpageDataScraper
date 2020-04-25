@@ -1,4 +1,7 @@
-![Node.js CI](https://github.com/hpt-dev/QuickScrape/workflows/Node.js%20CI/badge.svg?branch=master)
+![Node.js CI](https://travis-ci.org/hpt-dev/QuickScrape.svg?branch=master)
+
+
+https://travis-ci.org/github/hpt-dev/QuickScrape
 
 # QuickScrape
 Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.
