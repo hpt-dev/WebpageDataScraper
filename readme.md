@@ -4,19 +4,15 @@
 Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.
 
 ## Installation
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.
 
 ```bash
-pip install foobar
+npm install quickscrape
 ```
 
 ## Usage
-```python
-import foobar
+```javascript
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
 ```
 
 ## Contributing

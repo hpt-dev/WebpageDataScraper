@@ -9,11 +9,11 @@
     "puppeteer": "^3.0.1"
   },
   "devDependencies": {
-    "mocha": "^7.1.1",
-    "nyc": "^15.0.1"
+    "mocha": "^7.1.1"
   },
   "scripts": {
-    "test": "nyc mocha"
+    "test": "mocha ./tests/test.js",
+    "debug-test": "mocha --inspect-brk ./tests/test.js"
   },
   "repository": {
     "type": "git",
