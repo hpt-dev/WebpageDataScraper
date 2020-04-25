@@ -1,5 +1,5 @@
 var assert = require('assert');
-var quickscrape = require('../lib/quickscrape');
+var { quickscrape, copyObj, isObject, getInnerText, getImageURL, getTableArray } = require('../lib/quickscrape');
 
 describe('quickscrape', function() {
   it('should return [] when sent an empty list of urls and selectors', async function(){
@@ -80,3 +80,19 @@ describe('quickscrape', function() {
   }).timeout(600000);
 });
 
+
+describe('isObject', function() {
+  
+  it('should return true for objects', async function(){
+    let output = isObject({});
+    let expected = true;
+    assert.equal(expected, output);
+  });
+
+  it('should return false for arrays', async function(){
+    let output = isObject([]);
+    let expected = false;
+    assert.equal(expected, output);
+  });
+
+});
