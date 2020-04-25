@@ -1,7 +1,7 @@
 const quickscrape = require('./quickscrape');
 
 let fighterArray = [
-    'https://www.sherdog.com/fighter/Tony-Ferguson-31239'
+    'https://www.sherdog.com/fighter/Tony-Ferguson-31239',
 ];
 
 let sherdogSelectors =
