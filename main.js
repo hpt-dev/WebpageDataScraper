@@ -1,16 +1,10 @@
-const puppeteer = require('puppeteer');
-const chalk = require('chalk');
-const fs = require('fs');
-//const Utils = require('./utils');
+const quickscrape = require('./quickscrape');
 
-const error = chalk.bold.red;
-const success = chalk.keyword("green");
-
-global.fighterArray = [
+let fighterArray = [
     'https://www.sherdog.com/fighter/Tony-Ferguson-31239'
 ];
 
-global.sherdogSelectors =
+let sherdogSelectors =
 {
     Text: {
         Name: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > h1 > span.fn',
@@ -47,64 +41,8 @@ global.sherdogSelectors =
     },
 };
 
+(async () => {
+    let output = await quickscrape(fighterArray, sherdogSelectors);
+    console.log(output);
+})()
 
-downloadData();
-
-async function downloadData() {
-    const browser = await puppeteer.launch();
-
-    try {
-
-        console.log(success("Starting"));
-
-        const page = await browser.newPage();
-
-        await page.goto('https://www.sherdog.com/fighter/Tony-Ferguson-31239',
-        {
-            waitUntil: 'load',
-            timeout: 0
-        });
-
-        // data to pass to browser
-        var passToBrowser = {
-            sherdogSelectors: this.sherdogSelectors,
-        };
-
-
-        await page.addScriptTag({path: "./utils.js"}); // pass util functions to chromium
-        page.on('console', msg => console.log('PAGE LOG:', msg.text())); // allow logging from chromium to node
-        
-        var result = await page.evaluate((passToBrowser) => {
-            let currFighter = {};
-
-            console.log(window.copyObj);
-
-            copyObj(passToBrowser.sherdogSelectors.Text, currFighter, getInnerText);
-            copyObj(passToBrowser.sherdogSelectors.Images, currFighter, getImageURL);
-            copyObj(passToBrowser.sherdogSelectors.Tables, currFighter, getTableArray);
-
-            return currFighter;
-
-        },  passToBrowser);
-
-        /*
-            Save Photo
-            var viewSource = await page.goto("https://www.google.com/" + imageHref);
-            fs (err) {
-                return console.log(err);
-            }.writeFile(".googles-20th-birthday-us-5142672481189888-s.png", await viewSource.buffer(), function (err) {
-            if
-        */
-
-        console.log(result);
-
-        await browser.close();
-
-        console.log(success("Complete"));
-
-    }
-    catch (err) {
-        console.log(error(err));
-        await browser.close();
-    }
-}
