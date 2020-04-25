@@ -28,7 +28,7 @@ describe('quickscrape', function() {
       "ExhibitionHistory":[["Result","Fighter","Event","Method/Referee","R","Time"],["win","Chuck O'Neil","UFC - The Ultimate Fighter Season 13 Semifinals\nMar / 01 / 2011","TKO (Punches)\nHerb Dean","3","3:10"],["win","Ryan McGillivray","UFC - The Ultimate Fighter Season 13 Quarterfinals, Day 2\nFeb / 23 / 2011","TKO (Punches)\nJosh Rosenthal","1","0:44"],["win","Justin Edwards","UFC - The Ultimate Fighter Season 13 Opening Round, Day 6\nFeb / 12 / 2011","KO (Upkick)\nJosh Rosenthal","1","3:57"]]
     }];
 
-    let localFile =  `${__dirname}/testpages/1.html`;
+    let localFile =  `file://${__dirname}/testpages/1.html`;
 
     let urls = [
       localFile
