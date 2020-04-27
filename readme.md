@@ -1,8 +1,8 @@
-![Node.js CI](https://travis-ci.org/hpt-dev/QuickScrape.svg?branch=master)
+![Node.js CI](https://travis-ci.org/hpt-dev/WebpageDataScraper.svg?branch=master)
 
-https://travis-ci.org/github/hpt-dev/QuickScrape
+https://travis-ci.org/github/hpt-dev/WebpageDataScraper
 
-# WebpageDataSraper
+# WebpageDataScraper
 Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.
 
 ## Installation
@@ -14,7 +14,7 @@ npm install webpagedatascraper
 
 ## Usage
 ```javascript
-const webpagedatascraper = require('./webpagedatascraper');
+const webpagedatascraper = require('webpagedatascraper');
 
 (async () => {
     let urls = [
