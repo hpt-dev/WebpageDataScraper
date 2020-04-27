@@ -1,5 +1,5 @@
 {
-  "name": "quickscrape",
+  "name": "hptquickscrape",
   "version": "1.0.0",
   "description": "Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.",
   "main": "main.js",

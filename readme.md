@@ -2,19 +2,19 @@
 
 https://travis-ci.org/github/hpt-dev/QuickScrape
 
-# QuickScrape
+# WebpageDatasSraper
 Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.
 
 ## Installation
 Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.
 
 ```bash
-npm install quickscrape
+npm install webpagedatascraper
 ```
 
 ## Usage
 ```javascript
-const quickscrape = require('./quickscrape');
+const webpagedatascraper = require('./webpagedatascraper');
 
 (async () => {
     let urls = [
@@ -41,7 +41,7 @@ const quickscrape = require('./quickscrape');
         },
     };
   
-    let actual = await quickscrape(urls, selectors);
+    let actual = await webpagedatascraper(urls, selectors);
     
     console.log(actual);
 })()

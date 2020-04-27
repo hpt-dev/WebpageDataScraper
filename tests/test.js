@@ -1,9 +1,10 @@
 var assert = require('assert');
-var { quickscrape, copyObj, isObject, getInnerText, getImageURL, getTableArray } = require('../lib/quickscrape');
+const webpagedatascraper = require('../lib/webpagedatascraper');
 
-describe('quickscrape', function() {
+describe('webpagedatascraper', function() {
+  
   it('should return [] when sent an empty list of urls and selectors', async function(){
-    let output = await quickscrape([], {});
+    let output = await webpagedatascraper.scrape([], {});
     let expected = [];
     assert.deepEqual(expected, output);
   });
@@ -71,7 +72,7 @@ describe('quickscrape', function() {
         },
     };
   
-    let actual = await quickscrape(urls, selectors);
+    let actual = await webpagedatascraper.scrape(urls, selectors);
 
     assert.equal(actual[0].Address, expected[0].Address);
     assert.equal(actual[0].DOB, expected[0].DOB);
@@ -84,13 +85,13 @@ describe('quickscrape', function() {
 describe('isObject', function() {
 
   it('should return true for objects', async function(){
-    let output = isObject({});
+    let output = webpagedatascraper.isObject({});
     let expected = true;
     assert.equal(expected, output);
   });
 
   it('should return false for arrays', async function(){
-    let output = isObject([]);
+    let output = webpagedatascraper.isObject([]);
     let expected = false;
     assert.equal(expected, output);
   });
