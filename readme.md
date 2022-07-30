@@ -1,3 +1,4 @@
+[![img](./badgegithubactions.svg)](https://github.com/hpt-dev/WebpageDataScraper/actions)
 ![Node.js CI](https://travis-ci.org/hpt-dev/WebpageDataScraper.svg?branch=master)
 
 https://travis-ci.org/github/hpt-dev/WebpageDataScraper
