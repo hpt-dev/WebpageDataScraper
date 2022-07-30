@@ -8,7 +8,12 @@ Will also return tables and images as well as text fields. Data returned in JSON
 
 See below for two examples, one using a local html file and one using a web address.
 
-How to get the css selectors using google chrome: https://amasty.com/knowledge-base/product-labels-find-css-selector.html
+How to get the css selectors using google chrome: 
+1)  Hover the cursor over the image, text, or table you wish to scrape and right click mouse.
+2)  Select Inspect.
+3)  Right click on the highlighted <img> tag, tag that contains the text e.g. <span>, <p> <b> or the <table> tag.
+5)  Select Copy > Copy selector.
+6)  Paste the css selector in the Text/Tables/Image object like in the example below, with whatever name you want to give that field.
 
 ## Installation
 Use the package manager [npm](https://www.npmjs.com/) to install quickscrape. [NPM repository address for WebpageDataScraper](https://www.npmjs.com/package/webpagedatascraper).
