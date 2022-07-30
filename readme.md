@@ -2,10 +2,11 @@
 
 https://travis-ci.org/github/hpt-dev/WebpageDataScraper
 
-UPDATE - 30/07/22 - Tests fixed (they were failing as the example website below had been updated). Dependency NPM packages updated.
-
 # WebpageDataScraper
 Web scraping extension for puppeteer. Quickly scrape data from html pages that have the same format. Simply supply css selectors and an array of urls.
+Will also return tables and images as well as text fields. 
+
+How to get the css selectors using google chrome: https://amasty.com/knowledge-base/product-labels-find-css-selector.html
 
 ## Installation
 Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.[webpagedatascraper npm page](https://www.npmjs.com/package/webpagedatascraper)
@@ -34,7 +35,7 @@ const webpagedatascraper = require('./webpagedatascraper');
               },
         },
         Tables: {
-              FightHistory: 'html body div.container div.col-left div section div.module.fight_history div.new_table_holder table.new_table.fighter tr',
+              FightHistory: 'html body div.container div.col-left div section div.module.fight_history div.new_table_holder table.new_table.fighter',
         },
         Images: {
               Picture: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div img.profile-image.photo'
@@ -45,7 +46,19 @@ const webpagedatascraper = require('./webpagedatascraper');
                        
     console.log(actual);                
     console.log(JSON.stringify(actual));
+
+    //OUTPUT of actual[0]:
+    //{
+    //    "Name":"TONY FERGUSON",
+    //    "Age":"38",
+    //    "Wins":{"KOTKO":"12"},
+    //    "Picture":"image_crop/200/300/_images/fighter/20220331085823_Tony_Ferguson_ff.JPG",
+    //    "FightHistory":[["RESULT","FIGHTER",    "EVENT","METHOD/REFEREE","R","TIME","LOSS","Michael Chandler","UFC 274 - Oliveira vs. Gaethje\nMay / 07 / 2022","KO (Front Kick)  //nJason Herzog\nVIEW PLAY-BY-PLAY","2","0:17","LOSS",   "Beneil Dariush","UFC 262 - Oliveira vs. Chandler\nMay / 15 / 2021","Decision (Unanimous)\nMike Beltran\nVIEW PLAY-BY-PLAY","3","5:00","LOSS","Charles Oliveira","UFC 256 - Figueiredo     vs. Moreno\nDec / 12 / 2020","Decision (Unanimous)\nMark Smith\nVIEW PLAY-BY-PLAY","3","5:00","LOSS","Justin Gaethje","UFC 249 - Ferguson vs. Gaethje\nMay / 09 / 2020","TKO (Punch)    \nHerb Dean\nVIEW PLAY-BY-PLAY","5","3:39","WIN","Donald Cerrone","UFC 238 - Cejudo vs. Moraes\nJun / 08 / 2019","TKO (Doctor Stoppage)\nDan Miragliotta\nVIEW PLAY-BY-PLAY","2",   "5:00"]]
+    }
+
 })()
 
 ```
-UPDATE - 30/07/22 - Tests fixed. Dependency NPM packages updated.
+## Notes
+
+UPDATE - 30/07/22 - Tests fixed. Dependency NPM packages updated. Readme Updated.
