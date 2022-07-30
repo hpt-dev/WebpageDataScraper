@@ -31,7 +31,8 @@
     "web scraper",
     "extract data from webpage",
     "extract html",
-    "extract html using css selectors"
+    "extract html using css selectors",
+    "scrape-it"
   ],
   "author": "HPT",
   "license": "MIT",
