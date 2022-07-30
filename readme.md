@@ -43,7 +43,8 @@ const webpagedatascraper = require('./webpagedatascraper');
   
     let actual = await webpagedatascraper.scrape(urls, selectors);
                        
-    console.log(actual);
+    console.log(actual);                
+    console.log(JSON.stringify(actual));
 })()
 
 ```

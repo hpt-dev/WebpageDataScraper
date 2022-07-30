@@ -1,6 +1,6 @@
 {
   "name": "webpagedatascraper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Web scraping extension for puppeteer. Quickly scrape html page data to JSON object.",
   "main": "./lib/webpagedatascraper.js",
   "dependencies": {
