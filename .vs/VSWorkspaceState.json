@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\lib",
+    "\\tests",
+    "\\tests\\testpages"
   ],
-  "SelectedNode": "\\C:\\Users\\hrtd\\Source\\Repos\\WebpageDataScraper",
   "PreviewInSolutionExplorer": false
 }

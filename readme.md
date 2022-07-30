@@ -3,8 +3,10 @@
 https://travis-ci.org/github/hpt-dev/WebpageDataScraper
 
 # WebpageDataScraper
-Web scraping extension for puppeteer. Quickly scrape data from html pages that have the same format. Simply supply css selectors and an array of urls.
-Will also return tables and images as well as text fields. 
+Quickly scrape data from a collection of html pages that have the same format. Simply supply css selectors and an array of urls (can be local html files or web address)
+Will also return tables and images as well as text fields. Data returned in JSON format.
+
+See below for two examples, one using a local html file and one using a web address.
 
 How to get the css selectors using google chrome: https://amasty.com/knowledge-base/product-labels-find-css-selector.html
 
@@ -15,7 +17,7 @@ Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.[we
 npm install webpagedatascraper
 ```
 
-## Usage
+## Usage with a web address
 ```javascript
 const webpagedatascraper = require('./webpagedatascraper');
 
@@ -59,6 +61,44 @@ const webpagedatascraper = require('./webpagedatascraper');
 })()
 
 ```
+
+## Usage with a html file
+```javascript
+  const webpagedatascraper = require('./webpagedatascraper');
+
+  let localFile =  `file://${__dirname}/testpages/1.html`;
+
+  let urls = [
+    localFile
+  ];
+  
+  let selectors =
+  {
+      Text: {
+            Name: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-title div.fighter-line1 h1 span.fn',
+            Age: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.bio-holder table tbody tr td b',
+            Wins:
+            {
+                KOTKO: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.winsloses-holder div.wins div.meter div.pl',
+            },
+      },
+      Tables: {
+            FightHistory: '.col-left > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2)',
+      },
+      Images: {
+            Picture: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div img.profile-image.photo'
+      },
+  };
+
+  let actual = await webpagedatascraper.scrape(urls, selectors);
+
+   console.log(actual);                
+   console.log(JSON.stringify(actual));
+
+})()
+
+```
+
 ## Notes
 
 UPDATE - 30/07/22 - Tests fixed. Dependency NPM packages updated. Readme Updated.
