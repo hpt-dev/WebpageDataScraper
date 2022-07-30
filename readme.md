@@ -11,7 +11,7 @@ See below for two examples, one using a local html file and one using a web addr
 How to get the css selectors using google chrome: https://amasty.com/knowledge-base/product-labels-find-css-selector.html
 
 ## Installation
-Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.[webpagedatascraper npm page](https://www.npmjs.com/package/webpagedatascraper)
+Use the package manager [npm](https://www.npmjs.com/) to install quickscrape. [NPM repository address for WebpageDataScraper](https://www.npmjs.com/package/webpagedatascraper).
 
 ```bash
 npm install webpagedatascraper
