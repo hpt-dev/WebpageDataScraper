@@ -48,3 +48,4 @@ const webpagedatascraper = require('./webpagedatascraper');
 })()
 
 ```
+UPDATE - 30/07/22 - Tests fixed. Dependency NPM packages updated.
