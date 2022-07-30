@@ -1,5 +1,4 @@
 [![img](./badgegithubactions.svg)](https://github.com/hpt-dev/WebpageDataScraper/actions)
-![Node.js CI](https://travis-ci.org/hpt-dev/WebpageDataScraper.svg?branch=master)
 
 # WebpageDataScraper
 Quickly scrape data from a collection of html pages that have the same format. Simply supply css selectors and an array of urls (can be local html files or web address).
@@ -15,7 +14,7 @@ How to get the css selectors using google chrome:
 6)  Paste the css selector in the Text/Tables/Image object like in the example below, with whatever name you want to give that field.
 
 ## Installation
-Use the package manager [npm](https://www.npmjs.com/) to install quickscrape. [NPM repository address for WebpageDataScraper](https://www.npmjs.com/package/webpagedatascraper).
+Use the package manager [npm](https://www.npmjs.com/) to install. 
 
 ```bash
 npm install webpagedatascraper
@@ -117,4 +116,4 @@ const webpagedatascraper = require('./webpagedatascraper');
 
 ## Notes
 
-UPDATE - 30/07/22 - Tests fixed. Dependency NPM packages updated. Readme Updated.
+UPDATE - 30/07/22 - Tests fixed. Dependency NPM packages updated. Readme Updated. [NPM repository address for WebpageDataScraper](https://www.npmjs.com/package/webpagedatascraper).
