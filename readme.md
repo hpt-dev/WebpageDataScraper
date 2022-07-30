@@ -2,11 +2,13 @@
 
 https://travis-ci.org/github/hpt-dev/WebpageDataScraper
 
+UPDATE - 30/07/22 - Tests fixed (they were failing as the example website below had been updated). Dependency NPM packages updated.
+
 # WebpageDataScraper
 Web scraping extension for puppeteer. Quickly scrape data from html pages that have the same format. Simply supply css selectors and an array of urls.
 
 ## Installation
-Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.
+Use the package manager [npm](https://www.npmjs.com/) to install quickscrape.[webpagedatascraper npm page](https://www.npmjs.com/package/webpagedatascraper)
 
 ```bash
 npm install webpagedatascraper
@@ -14,7 +16,7 @@ npm install webpagedatascraper
 
 ## Usage
 ```javascript
-const webpagedatascraper = require('webpagedatascraper');
+const webpagedatascraper = require('./webpagedatascraper');
 
 (async () => {
     let urls = [
@@ -24,25 +26,24 @@ const webpagedatascraper = require('webpagedatascraper');
     let selectors =
     {
         Text: {
-              Name: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > h1 > span.fn',
-              NickName: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > h1 > span.nickname > em',
-              DOB: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > div.content > div:nth-child(1) > div > div.bio > div.birth_info > span.item.birthday > span',
-              Age: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > div.content > div:nth-child(1) > div > div.bio > div.birth_info > span.item.birthday > strong',
+              Name: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-title div.fighter-line1 h1 span.fn',
+              Age: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.bio-holder table tbody tr td b',
               Wins:
               {
-                  Total: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > div.content > div:nth-child(1) > div > div.record > div > div > div:nth-child(1) > span.card > span.counter'
+                  KOTKO: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.winsloses-holder div.wins div.meter div.pl',
               },
         },
         Tables: {
-              FightHistory: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(5) > div > div.content.table > table tr',
+              FightHistory: 'html body div.container div.col-left div section div.module.fight_history div.new_table_holder table.new_table.fighter tr',
         },
         Images: {
-              Picture: 'body > div.container > div:nth-child(3) > div.col_left > section:nth-child(3) > div > div.content > div:nth-child(1) > img'
+              Picture: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div img.profile-image.photo'
         },
     };
   
     let actual = await webpagedatascraper.scrape(urls, selectors);
-    
+                       
     console.log(actual);
 })()
+
 ```
