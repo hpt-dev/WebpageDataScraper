@@ -29,7 +29,8 @@ const webpagedatascraper = require('./webpagedatascraper');
 
 (async () => {
     let urls = [
-        'https://www.sherdog.com/fighter/Tony-Ferguson-31239'
+        'https://www.sherdog.com/fighter/Tony-Ferguson-31239',
+        'https://www.sherdog.com/fighter/Beneil-Dariush-56583'
     ];
     
     let selectors =
@@ -74,10 +75,9 @@ const webpagedatascraper = require('./webpagedatascraper');
 const webpagedatascraper = require('./webpagedatascraper');
 
 (async () => {
-    let localFile =  `file://${__dirname}/testpages/1.html`;
-
     let urls = [
-      localFile
+      `file://${__dirname}/testpages/1.html`,
+      `file://${__dirname}/testpages/2.html`
     ];
     
     let selectors =
