@@ -1,8 +1,6 @@
 [![img](./badgegithubactions.svg)](https://github.com/hpt-dev/WebpageDataScraper/actions)
 ![Node.js CI](https://travis-ci.org/hpt-dev/WebpageDataScraper.svg?branch=master)
 
-https://travis-ci.org/github/hpt-dev/WebpageDataScraper
-
 # WebpageDataScraper
 Quickly scrape data from a collection of html pages that have the same format. Simply supply css selectors and an array of urls (can be local html files or web address).
 Will also return tables and images as well as text fields. Data returned in JSON format.
