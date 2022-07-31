@@ -6,11 +6,11 @@ Will also return tables and images as well as text fields. Data returned in JSON
 
 See below for two examples, one using a local html file and one using a web address.
 
-How to get the css selectors using google chrome: 
+How to get the css selectors using google chrome (don't use firefox as the options are different): 
 1)  Hover the cursor over the image, text, or table you wish to scrape and right click mouse.
 2)  Select Inspect which will bring up the chrome developer tools.
 3)  Right click on the highlighted image tag, tag that contains the text (e.g. span, p, b) or the table tag.
-5)  Select Copy > Copy selector.
+5)  **Select Copy > Copy selector (this is important! The path should have '>' symbols in like the example below).**
 6)  Paste the css selector in the Text/Tables/Image object like in the example below, with whatever name you want to give that field.
 
 ## Installation
@@ -34,18 +34,18 @@ const webpagedatascraper = require('./webpagedatascraper');
     let selectors =
     {
         Text: {
-              Name: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-title div.fighter-line1 h1 span.fn',
-              Age: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.bio-holder table tbody tr td b',
+              Name: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-title > div.fighter-line1 > h1 > span',
+              Age: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-data > div.bio-holder > table > tbody > tr:nth-child(1) > td:nth-child(2) > b',
               Wins:
               {
-                  KOTKO: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.winsloses-holder div.wins div.meter div.pl',
+                  KOTKO: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-data > div.winsloses-holder > div.wins > div:nth-child(3) > div.pl',
               },
         },
         Tables: {
-              FightHistory: 'html body div.container div.col-left div section div.module.fight_history div.new_table_holder table.new_table.fighter',
+              FightHistory: 'body > div.container > div.col-left > div > section:nth-child(4) > div.module.fight_history > div > table',
         },
         Images: {
-              Picture: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div img.profile-image.photo'
+              Picture: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div:nth-child(1) > img'
         },
     };
   
@@ -81,18 +81,18 @@ const webpagedatascraper = require('./webpagedatascraper');
     let selectors =
     {
         Text: {
-              Name: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-title div.fighter-line1 h1 span.fn',
-              Age: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.bio-holder table tbody tr td    b',
+              Name: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-title > div.fighter-line1 > h1 > span',
+              Age: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-data > div.bio-holder > table > tbody > tr:nth-child(1) > td:nth-child(2) > b',
               Wins:
               {
-                  KOTKO: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.winsloses-holder div. wins div.meter div.pl',
+                  KOTKO: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-data > div.winsloses-holder > div.wins > div:nth-child(3) > div.pl',
               },
         },
         Tables: {
-              FightHistory: '.col-left > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2)',
+              FightHistory: 'body > div.container > div.col-left > div > section:nth-child(4) > div.module.fight_history > div > table',
         },
         Images: {
-              Picture: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div img.profile-image.photo'
+              Picture: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div:nth-child(1) > img'
         },
     };
 

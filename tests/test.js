@@ -18,23 +18,24 @@ describe('webpagedatascraper', function() {
       localFile
     ];
   
-  let selectors =
-  {
-      Text: {
-            Name: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-title div.fighter-line1 h1 span.fn',
-            Age: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.bio-holder table tbody tr td b',
-            Wins:
-            {
-                KOTKO: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div.fighter-right div.fighter-data div.winsloses-holder div.wins div.meter div.pl',
-            },
-      },
-      Tables: {
-            FightHistory: '.col-left > div:nth-child(1) > section:nth-child(4) > div:nth-child(2) > div:nth-child(1) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(2)',
-      },
-      Images: {
-            Picture: 'html body div.container div.col-left div section div.module.bio_fighter.vcard div.fighter-info div img.profile-image.photo'
-      },
-  };
+    let selectors =
+    {
+        Text: {
+              Name: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-title > div.fighter-line1 > h1 > span',
+              Age: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-data > div.bio-holder > table > tbody > tr:nth-child(1) > td:nth-child(2) > b',
+              Wins:
+              {
+                  KOTKO: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div.fighter-right > div.fighter-data > div.winsloses-holder > div.wins > div:nth-child(3) > div.pl',
+              },
+        },
+        Tables: {
+              FightHistory: 'body > div.container > div.col-left > div > section:nth-child(4) > div.module.fight_history > div > table',
+        },
+        Images: {
+              Picture: 'body > div.container > div.col-left > div > section:nth-child(3) > div > div.fighter-info > div:nth-child(1) > img'
+        },
+    };
+
     let actual = await webpagedatascraper.scrape(urls, selectors);
 
     assert.equal(actual[0].Name.toLowerCase(), expected[0].Name.toLowerCase());
