@@ -6,12 +6,16 @@ Will also return tables and images as well as text fields. Data returned in JSON
 
 See below for two examples, one using a local html file and one using a web address.
 
-How to get the css selectors using google chrome (don't use firefox as the options are different): 
+How to get the css selectors using google chrome (don't use firefox as the options are different):
 1)  Hover the cursor over the image, text, or table you wish to scrape and right click mouse.
 2)  Select Inspect which will bring up the chrome developer tools.
 3)  Right click on the highlighted image tag, tag that contains the text (e.g. span, p, b) or the table tag.
 5)  **Select Copy > CSS selector (this is important! The path should have '>' symbols in like the example below).**
 6)  Paste the css selector in the Text/Tables/Image object like in the example below, with whatever name you want to give that field.
+
+PRO TIP: If the css selector isn't returning a value try running the command document.querySelector('selector goes here') in the chrome developer console. 
+If it returns null then the selector is not correct. Try to grab the selector again and make sure you are selecting the 'CSS Selector' option in the chrome developer tools and that
+it contains '>' symbols like the examples below e.g. 'body > div.container > div.col-left > div > section:nth-child(3)'.
 
 ## Installation
 Use the package manager [npm](https://www.npmjs.com/) to install. 
