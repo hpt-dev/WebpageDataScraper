@@ -10,7 +10,7 @@ How to get the css selectors using google chrome (don't use firefox as the optio
 1)  Hover the cursor over the image, text, or table you wish to scrape and right click mouse.
 2)  Select Inspect which will bring up the chrome developer tools.
 3)  Right click on the highlighted image tag, tag that contains the text (e.g. span, p, b) or the table tag.
-5)  **Select Copy > Copy selector (this is important! The path should have '>' symbols in like the example below).**
+5)  **Select Copy > CSS selector (this is important! The path should have '>' symbols in like the example below).**
 6)  Paste the css selector in the Text/Tables/Image object like in the example below, with whatever name you want to give that field.
 
 ## Installation
