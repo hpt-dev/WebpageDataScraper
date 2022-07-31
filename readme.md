@@ -114,12 +114,14 @@ const webpagedatascraper = require('./webpagedatascraper');
 
 ```
 
-## Issues and Contributing and Support
+## Issues and Contributing
 Please [open an issue](https://github.com/hpt-dev/WebpageDataScraper/issues) if you find a bug or need help. If you would like to help me improve this package feel free to open a [pull request](https://github.com/hpt-dev/WebpageDataScraper/pulls) with your changes.
 
 ## Donate 
 Any donations are appreciated! :)
+
 Bitcoin: 3MtYLNwK4VHZCsx8m8vMH7osScoucVX4pM
+
 Eth: 0xC2594e60A1d27eb7Dad1828DB2dDc44C4D0040c5
 
 ## Notes
