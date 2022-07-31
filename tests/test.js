@@ -4,7 +4,7 @@ const webpagedatascraper = require('../lib/webpagedatascraper');
 describe('webpagedatascraper', function() {
   
   it('should return [] when sent an empty list of urls and selectors', async function(){
-    let output = await webpagedatascraper.scrape([], {});
+    let output = await webpagedatascraper.scrape([], {}, true);
     let expected = [];
     assert.deepEqual(expected, output);
   });
@@ -36,7 +36,7 @@ describe('webpagedatascraper', function() {
         },
     };
 
-    let actual = await webpagedatascraper.scrape(urls, selectors);
+    let actual = await webpagedatascraper.scrape(urls, selectors, true);
 
     assert.equal(actual[0].Name.toLowerCase(), expected[0].Name.toLowerCase());
     assert.equal(actual[0].Age, expected[0].Age);
