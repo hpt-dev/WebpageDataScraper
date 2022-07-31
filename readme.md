@@ -1,22 +1,19 @@
 [![img](./badgegithubactions.svg)](https://github.com/hpt-dev/WebpageDataScraper/actions)
 
 # WebpageDataScraper
-Quickly scrape data from a collection of html pages that have the same format. Simply supply css selectors and an array of urls (can be local html files or web address).
-Will also return tables and images as well as text fields. Data returned in JSON format.
-
-See below for two examples, one using a local html file and one using a web address.
+Quickly scrape data from a collection of html pages that have the same format. Simply supply css selectors and an array of urls (can be local html files or web address). Will also return tables and images as well as text fields. Data returned in JSON format. See below for two examples, one using a local html file and one using a web address.
 
 How to get the css selectors using google chrome (don't use firefox as the options are different):
 1)  Hover the cursor over the image, text, or table you wish to scrape and right click mouse.
 2)  Select Inspect which will bring up the chrome developer tools.
 3)  Right click on the highlighted image tag, tag that contains the text (e.g. span, p, b) or the table tag.
-5)  **Select Copy > CSS selector (this is important! The path should most likely have '>' symbols in like the example below).**
-6)  Paste the css selector in the Text/Tables/Image object like in the example below, with whatever name you want to give that field.
-
-**PRO TIP**: If the css selector isn't returning a value try running the command `document.querySelector('selector goes here')` in the chrome developer console. 
-If it returns null then the selector is not correct. Try to grab the selector again and make sure you are selecting the 'CSS Selector' option in the chrome developer tools and that it contains '>' symbols like the code examples below e.g. 'body > div.container > div.col-left > div > section:nth-child(3)'.
+5)  **Select Copy > CSS selector (this is important! The path should most likely have '>' symbols in like the examples below).**
+6)  Paste the css selector in the Text/Tables/Image object like in the examples below, with whatever name you want to give that field.
 
 ![How to find CSS selectors with chrome and chrome dev tools](./HowToFindSelectors.png)
+
+**PRO TIP**: If the css selector isn't returning a value try running the command `document.querySelector('selector goes here')` in the chrome developer console. 
+If it returns null then the selector is not correct.
 
 **PRO TIP 2**: Sometimes when scraping, the provided web addresses may redirect to a login page and so the scraping will fail even though everything looks correct. Try running in headless mode by setting the bool in the scrape function to false e.g. `await webpagedatascraper.scrape(obj, arr, false)`. This will launch the browser
 that is doing the scraping and you can watch to see if any redirects or other issues that would cause the scrape to fail are happening.
@@ -138,7 +135,7 @@ const webpagedatascraper = require('./webpagedatascraper');
 
 -  **Object**  `selectors`: An object containing the CSS selectors in string format. Please use chrome when finding the selectors and make sure they are in a format that contains '>' symbols like the examples above.
 
--  **Bool**  `isHeadless`:  Useful for debugging. Set to false to see the Chromium instance that is doing the scraping. This is useful for debugging as some pages might redirect to a login page and so the scraping will fail.
+-  **Bool**  `isHeadless`:  Set to false to see the Chromium instance that is doing the scraping. This is useful for debugging as some pages might redirect to a login page and so the scraping will fail.
 
 #### Return
 -  **Array** `data`: The scraped data.
