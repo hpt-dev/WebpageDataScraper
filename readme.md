@@ -15,7 +15,7 @@ How to get the css selectors using google chrome (don't use firefox as the optio
 **PRO TIP**: If the css selector isn't returning a value try running the command `document.querySelector('selector goes here')` in the chrome developer console. 
 If it returns null then the selector is not correct.
 
-**PRO TIP 2**: Sometimes when scraping, the provided web addresses may redirect to a login page and so the scraping will fail even though everything looks correct. Try running in headless mode by setting the bool in the scrape function to false e.g. `await webpagedatascraper.scrape(obj, arr, false)`. This will launch the browser
+**PRO TIP 2**: Sometimes when scraping, the provided web addresses may redirect to a login page and so the scraping will fail even though everything looks correct. Try running with headless mode disabled by setting the bool in the scrape function to false e.g. `await webpagedatascraper.scrape(obj, arr, false)`. This will launch the browser
 that is doing the scraping and you can watch to see if any redirects or other issues that would cause the scrape to fail are happening.
 
 ## Installation
